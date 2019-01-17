@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Uchet.Models;
+using System.Data.Entity;
 
 namespace Uchet.Controllers
 {
@@ -38,6 +40,10 @@ namespace Uchet.Controllers
         // GET: NegotiableStatement
         public ActionResult Index()
         {
+            Context db = new Context();
+
+            ViewBag.Message = "Номенклатура";
+            ViewBag.Nomenclature = db.Nomenclature;
             return View();
         }
     }

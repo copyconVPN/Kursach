@@ -14,5 +14,7 @@ namespace Uchet.Models
         public DbSet<Buyer> Buyer { get; set; }
         public DbSet<AccountingPoints> AccountingPoints { get; set; }
         public DbSet<Nomenclature> Nomenclature { get; set; }
+        public DbSet<Profit> Profit { get; set; }
+        
     }
 }
