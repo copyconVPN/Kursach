@@ -38,17 +38,31 @@ namespace Uchet.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit()
-        {            
-            ViewBag.Providers = db.Providers;
-            return View();
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var providers = db.Providers.Find(id);
+
+            if (providers != null)
+            {
+                return PartialView("Edit", providers);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public ActionResult Edit(int id)
-        {            
-            ViewBag.Providers = db.Providers;
-            return View();
+        public ActionResult Edit(Providers providers)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(providers).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
