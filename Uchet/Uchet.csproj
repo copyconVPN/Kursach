@@ -165,6 +165,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901171014151_InitialCreate.cs" />
+    <Compile Include="Migrations\201901171014151_InitialCreate.Designer.cs">
+      <DependentUpon>201901171014151_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901171325076_1-1.cs" />
+    <Compile Include="Migrations\201901171325076_1-1.Designer.cs">
+      <DependentUpon>201901171325076_1-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountingPoints.cs" />
     <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\Context.cs" />
@@ -259,6 +268,15 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Providers\Edit.cshtml" />
+    <Content Include="Views\Buyer\Edit.cshtml" />
+    <Content Include="Views\Buyer\Delete.cshtml" />
+    <Content Include="Views\Buyer\Create.cshtml" />
+    <Content Include="Views\Nomenclature\Edit.cshtml" />
+    <Content Include="Views\Nomenclature\Delete.cshtml" />
+    <Content Include="Views\Nomenclature\Create.cshtml" />
+    <Content Include="Views\AccountingPoints\Edit.cshtml" />
+    <Content Include="Views\AccountingPoints\Delete.cshtml" />
+    <Content Include="Views\AccountingPoints\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -273,6 +291,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901171014151_InitialCreate.resx">
+      <DependentUpon>201901171014151_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901171325076_1-1.resx">
+      <DependentUpon>201901171325076_1-1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
