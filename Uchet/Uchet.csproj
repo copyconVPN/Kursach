@@ -178,6 +178,7 @@
     <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Nomenclature.cs" />
+    <Compile Include="Models\Partner.cs" />
     <Compile Include="Models\Providers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
