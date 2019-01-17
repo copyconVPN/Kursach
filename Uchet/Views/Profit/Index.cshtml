@@ -8,19 +8,50 @@
         <thead>
             <tr>
                 <th>№</th>
-                <th>Фамилия</th>
-                <th>Имя</th>
-                <th style="display:none"></th>
-                <th>Отчество</th>
-                <th>Комментарий</th>
-                <th>Подразделение</th>
-                <th>Штатный</th>
-                <th>Тарификация</th>
+                <th>Наименование</th>
+                <th>Дата</th>
+                <th>№ накладной</th>
+                <th>Поставщик</th>
+                <th>Код</th>
+                <th>Точка учета</th>
+                <th>Ед. изм.</th>
+                <th>Кол-во</th>
+                <th>Цена</th>
+                <th>Стоимость</th>
                 <th></th>
                 <th></th>
                 @*<th></th>*@
             </tr>
         </thead>
+        @{
+            int i = 1;
+        }
+        @foreach (var item in ViewBag.Profit)
+        {
+
+        <tr>
+            <td>@i</td>
+            <td>@item.Name</td>
+            <td>@item.Date</td>
+            <td>@item.Invoice</td>
+            <td>@item.Provider</td>
+            <td>@item.Code</td>
+            <td>@item.AccountingPoint</td>
+            <td>@item.Unit</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+            <td>@item.Cost</td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", "Profit", new { id = item.Id },
+                           new { @class = "viewDialog edit", title ="Редактировать" })
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "Delete", "Profit", new { id = item.Id },
+                           new { @class = "viewDialog", title = "Удалить" })
+            </td>
+        </tr>
+            i++;
+        }
 
     </table>
 </div>

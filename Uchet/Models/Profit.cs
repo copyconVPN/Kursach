@@ -6,16 +6,44 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Uchet.Models
 {
-    public class Profit : Product
+    public class Profit
     {
+        [Key]
+        public int Id { get; set; }
+
+        [Display(Name = "Наименование")]
+        [Required(ErrorMessage = "Наименование не указано")]
+        public string Name { get; set; }
+
+        [Display(Name = "Дата прихода")]
+        [Required(ErrorMessage = "Дата не указана")]
+        public DateTime Date { get; set; }
+
+        [Display(Name = "Накладная")]
+        [Required(ErrorMessage = "Наименование не указано")]
+        public string Invoice { get; set; }
+
         [Display(Name = "Поставщик")]
-        [Required(ErrorMessage = "Поставщик не выбран")]
-        public int ProvidersID { get; set; }
-        public Providers Providers { get; set; }
+        [Required(ErrorMessage = "Поставщик не указан")]
+        public int Provider { get; set; }
+
+        public string Code { get; set; }
 
         [Display(Name = "Точка учета")]
-        [Required(ErrorMessage = "Точка учета не выбрана")]
-        public int AccountingPointsID { get; set; }
-        public AccountingPoints AccountingPoints { get; set; }
+        [Required(ErrorMessage = "Точка учета не указана")]
+        public int AccountingPoint { get; set; }
+
+        public string Unit { get; set; }
+
+        [Display(Name = "Количество")]
+        [Required(ErrorMessage = "Количество не указано")]
+        public int Quantity { get; set; }
+
+        [Display(Name = "Цена")]
+        [Required(ErrorMessage = "Цена не указана")]
+        public float Price { get; set; }
+
+        public float Cost { get; set; }
+
     }
 }
