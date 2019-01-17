@@ -153,6 +153,7 @@
     <Compile Include="Controllers\BuyerController.cs" />
     <Compile Include="Controllers\ExpenseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NegotiableStatementController.cs" />
     <Compile Include="Controllers\NomenclatureController.cs" />
     <Compile Include="Controllers\ProfitController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
@@ -263,6 +264,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\NegotiableStatement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

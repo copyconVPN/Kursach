@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "  Оборотная ведомость";
+}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewBag.Message</h1>
+</div>
+<div>
+    <table id="DTable" class="display compact stripe" style="width:100%">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Наименование</th>
+                <th>Сорт</th>
+                <th>Ед.изм.</th>
+                <th>Характеристика</th>
+                <th>Поступление</th>
+                <th>Отгрузка</th>
+                <th>Остаток</th>
+            </tr>
+        </thead>
+
+        @{
+            int i = 1;
+        }
+        @foreach (var item in ViewBag.NegotiableStatement)
+        {
+
+        <tr>
+            <td>@i</td>
+            <td>@item.Name</td>
+            <td>@item.Sort</td>
+            <td>@item.Unit</td>
+            <td>@item.Property</td>
+            <td>@item.Arrival</td>
+            <td>@item.Shipment</td>
+            <td>@item.Remainder</td>
+        </tr>
+            i++;
+        }
+
+    </table>
+</div>
+
+
