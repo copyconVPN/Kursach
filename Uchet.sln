@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uchet", "Uchet\Uchet.csproj", "{5E257F5B-596F-4CF1-8036-AD5110555FCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E257F5B-596F-4CF1-8036-AD5110555FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E257F5B-596F-4CF1-8036-AD5110555FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E257F5B-596F-4CF1-8036-AD5110555FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E257F5B-596F-4CF1-8036-AD5110555FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {634979B9-1606-47FE-A293-425EFC40D053}
+	EndGlobalSection
+EndGlobal

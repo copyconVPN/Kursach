@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Поставщики";
+}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewBag.Message</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group" role="group" aria-label="First group">
+            @Html.ActionLink("Новая запись", "Create", "Providers", new { }, new { @class = "viewDialog btn btn-sm btn-primary", data_dialog_title = "Создание записи" })
+        </div>
+    </div>
+</div>
+    <div>
+        <table id="DTable" class="display compact stripe" style="width:100%">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Наименование</th>
+                    <th>Код</th>                    
+                    <th>Юридический адрес</th>
+                    <th>Почтовый адрес</th>
+                    <th>Комментарий</th>                    
+                    <th></th>
+                    <th></th>                    
+                </tr>
+            </thead>
+
+            @{
+                int i = 1;               
+            }
+            @foreach (var item in ViewBag.Providers)
+            {
+                
+            <tr>
+                <td>@i</td>
+                <td>@item.Name</td>
+                <td>@item.Code</td>
+                <td>@item.LegalAddress</td>
+                <td>@item.PhysicalAddress</td>
+                <td>@item.Comment</td>                
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", "Providers", new { id = item.Id },
+                               new { @class = "viewDialog edit", title ="Редактировать" })
+                </td>
+                <td>
+                    @Html.ActionLink("Удалить", "Delete", "Providers", new { id = item.Id },
+                               new { @class = "viewDialog", title = "Удалить" })
+                </td>
+            </tr>
+                i++;
+            }
+
+        </table>
+    </div>

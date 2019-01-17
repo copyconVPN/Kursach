@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryajax")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    @Scripts.Render("~/bundles/dtable")
+
+</head>
+<body>
+    <div class="navbar navbar-expand navbar-dark bg-dark">
+
+        <div>
+            @Html.ActionLink("Складской учет", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <ul class="navbar-nav mr-auto">
+            <li>@Html.ActionLink("Поставщики", "Index", "Providers", new { }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Покупатели", "Index", "Buyer", new { }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Точки учета", "Index", "AccountingPoints", new { }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Номенклатура", "Index", "Nomenclature", new { }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Приход", "Index", "Profit", new { }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Расход", "Index", "Expense", new { }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Оборотная ведомость", "Index", "Home", new { }, new { @class = "nav-link" })</li>
+        </ul>
+
+    </div>
+    <div class="container body-content">
+        <div id="modDialog" class="modal fade">
+            <div id="dialogContent" class="modal-dialog"></div>
+        </div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year – программа складского учета</p>
+        </footer>
+    </div>
+    @*@RenderSection("scripts", required: false)*@
+    <script>
+        $(document).ready(function () {
+            $.ajaxSetup({ cache: false });
+            $(".viewDialog").on("click", function (e) {
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        });
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+          
+    </script>
+</body>
+</html>
