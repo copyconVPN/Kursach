@@ -156,13 +156,14 @@
     <Compile Include="Controllers\NomenclatureController.cs" />
     <Compile Include="Controllers\ProfitController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
+    <Compile Include="Controllers\TurnController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountingPoints.cs" />
     <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\Context.cs" />
-    <Compile Include="Models\Expense - Копировать.cs" />
+    <Compile Include="Models\Turn.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\Nomenclature.cs" />
@@ -273,6 +274,7 @@
     <Content Include="Views\Expense\Edit.cshtml" />
     <Content Include="Views\Expense\Delete.cshtml" />
     <Content Include="Views\Expense\Create.cshtml" />
+    <Content Include="Views\Turn\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

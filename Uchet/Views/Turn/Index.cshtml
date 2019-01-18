@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "  Оборотная ведомость";
+}
+<div>
+    <h1 class="h2">@ViewBag.Message</h1>
+</div>
+
+<div>
+    <table id="DTable" class="display compact stripe" style="width:100%">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Наименование</th>
+                <th>Сорт</th>
+                <th>Ед.изм.</th>
+                <th>Поступление</th>
+                <th>Отгрузка</th>
+                <th>Остаток</th>
+            </tr>
+        </thead>
+        @{
+            int i = 1;
+        }
+        @foreach (var item in ViewBag.Turn)
+        {
+
+            <tr>
+                <td>@i</td>
+                <td>@item.Name</td>
+                <td>@item.Sort</td>
+                <td>@item.Unit</td>
+                <td>@item.Profit</td>
+                <td>@item.Exspense</td>
+                <td>@item.Balance</td>
+            </tr>
+            i++;
+        }
+
+    </table>
+</div>
+
