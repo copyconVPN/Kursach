@@ -16,13 +16,54 @@ namespace Uchet.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Поступления";
-            ViewBag.Profit = db.Profit;
+            List<ProfitList> profitList = new List<ProfitList>();
+            var loadDb = db.Profit;
+            foreach (var item in loadDb)
+            {
+                profitList.Add(new ProfitList()
+                {
+                    Id = item.Id,
+                    Nomenclature = db.Nomenclature.Find(item.Nomenclature).Name,
+                    Date = item.Date,
+                    Invoice = item.Invoice,
+                    Provider = db.Providers.Find(item.Provider).Name,
+                    AccountingPoint = db.AccountingPoints.Find(item.AccountingPoint).Name,
+                    Quantity = item.Quantity,
+                    Price = item.Price
+                });
+            }
+
+            ViewBag.Profit = profitList;
             return View();
         }
 
         [HttpGet]
         public ActionResult Create()
         {
+            var nomenclature = new List<object>();
+            var i = 1;
+            foreach (var item in db.Nomenclature.OrderBy(s => s.Name))
+            {
+                nomenclature.Add(new { key = i, label = item.Name });
+                i++;
+            }
+            i = 1;
+            var providers = new List<object>();
+            foreach (var item in db.Providers.OrderBy(s => s.Name))
+            {
+                providers.Add(new { key = i, label = item.Name });
+                i++;
+            }
+            i = 1;
+            var accountingpoints = new List<object>();
+            foreach (var item in db.AccountingPoints.OrderBy(s => s.Name))
+            {
+                accountingpoints.Add(new { key = i, label = item.Name });
+                i++;
+            }
+            ViewBag.Nomenclature = new SelectList(nomenclature, "key", "label", null);
+            ViewBag.Provider = new SelectList(providers, "key", "label", null);
+            ViewBag.AccountingPoint = new SelectList(accountingpoints, "key", "label", null);
             return PartialView("Create");
         }
 

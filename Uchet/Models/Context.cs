@@ -15,6 +15,7 @@ namespace Uchet.Models
         public DbSet<AccountingPoints> AccountingPoints { get; set; }
         public DbSet<Nomenclature> Nomenclature { get; set; }
         public DbSet<Profit> Profit { get; set; }
-        
+        public DbSet<Expense> Expense { get; set; }
+
     }
 }

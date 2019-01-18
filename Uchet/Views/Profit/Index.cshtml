@@ -1,7 +1,14 @@
 ﻿@{
     ViewBag.Title = "Приход";
 }
-<div><h1>@ViewBag.Message</h1></div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewBag.Message</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group" role="group" aria-label="First group">
+            @Html.ActionLink("Новая запись", "Create", "Profit", new { }, new { @class = "viewDialog btn btn-sm btn-primary", data_dialog_title = "Создание записи" })
+        </div>
+    </div>
+</div>
 
 <div>
     <table id="DTable" class="display compact stripe" style="width:100%">
@@ -12,12 +19,9 @@
                 <th>Дата</th>
                 <th>№ накладной</th>
                 <th>Поставщик</th>
-                <th>Код</th>
                 <th>Точка учета</th>
-                <th>Ед. изм.</th>
                 <th>Кол-во</th>
                 <th>Цена</th>
-                <th>Стоимость</th>
                 <th></th>
                 <th></th>
                 @*<th></th>*@
@@ -29,27 +33,24 @@
         @foreach (var item in ViewBag.Profit)
         {
 
-        <tr>
-            <td>@i</td>
-            <td>@item.Name</td>
-            <td>@item.Date</td>
-            <td>@item.Invoice</td>
-            <td>@item.Provider</td>
-            <td>@item.Code</td>
-            <td>@item.AccountingPoint</td>
-            <td>@item.Unit</td>
-            <td>@item.Quantity</td>
-            <td>@item.Price</td>
-            <td>@item.Cost</td>
-            <td>
-                @Html.ActionLink("Редактировать", "Edit", "Profit", new { id = item.Id },
-                           new { @class = "viewDialog edit", title ="Редактировать" })
-            </td>
-            <td>
-                @Html.ActionLink("Удалить", "Delete", "Profit", new { id = item.Id },
-                           new { @class = "viewDialog", title = "Удалить" })
-            </td>
-        </tr>
+            <tr>
+                <td>@i</td>
+                <td>@item.Nomenclature</td>
+                <td>@item.Date</td>
+                <td>@item.Invoice</td>
+                <td>@item.Provider</td>
+                <td>@item.AccountingPoint</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+                <td>@*
+                    @Html.ActionLink("Редактировать", "Edit", "Profit", new { id = item.Id },
+                               new { @class = "viewDialog edit", title ="Редактировать" })*@
+                </td>
+                <td>
+                    @Html.ActionLink("Удалить", "Delete", "Profit", new { id = item.Id },
+                               new { @class = "viewDialog", title = "Удалить" })
+                </td>
+            </tr>
             i++;
         }
 
